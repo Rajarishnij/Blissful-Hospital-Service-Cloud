@@ -5,242 +5,49 @@
 <title>Blissful Hospital - Patient Support</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: #f4f7fa;
-    color: #22313f;
-  }
-
-  /* ---------- NAVBAR ---------- */
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 40px;
-    background: #ffffff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 800;
-    font-size: 20px;
-    color: #0a6e6e;
-  }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #f4f7fa; color: #22313f; }
+  nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 40px; background: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 100; }
+  .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 20px; color: #0a6e6e; }
   .logo svg { width: 34px; height: 34px; }
-  nav ul {
-    display: flex;
-    list-style: none;
-    gap: 26px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #4a5568;
-  }
+  nav ul { display: flex; list-style: none; gap: 26px; font-size: 14px; font-weight: 600; color: #4a5568; }
   nav ul li:hover { color: #0a6e6e; cursor: pointer; }
-  .nav-cta {
-    background: #0a6e6e;
-    color: white;
-    padding: 9px 18px;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 700;
-  }
-
-  /* ---------- HERO ---------- */
-  .hero {
-    position: relative;
-    background: linear-gradient(135deg, #0a6e6e 0%, #14958f 60%, #3fc1c9 100%);
-    color: white;
-    padding: 70px 40px 0;
-    overflow: hidden;
-    min-height: 480px;
-  }
-  .hero-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1100px;
-    margin: 0 auto;
-    flex-wrap: wrap;
-    gap: 30px;
-  }
+  .nav-cta { background: #0a6e6e; color: white; padding: 9px 18px; border-radius: 6px; font-size: 13px; font-weight: 700; }
+  .hero { position: relative; background: linear-gradient(135deg, #0a6e6e 0%, #14958f 60%, #3fc1c9 100%); color: white; padding: 70px 40px 0; overflow: hidden; min-height: 480px; }
+  .hero-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1100px; margin: 0 auto; flex-wrap: wrap; gap: 30px; }
   .hero-text { max-width: 480px; z-index: 5; }
-  .hero-text .badge {
-    display: inline-block;
-    background: rgba(255,255,255,0.18);
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 700;
-    margin-bottom: 14px;
-    animation: fadeIn 1s ease;
-  }
-  .hero-text h1 {
-    font-size: 34px;
-    line-height: 1.25;
-    margin-bottom: 14px;
-    animation: slideUp 0.9s ease;
-  }
-  .hero-text p {
-    font-size: 15px;
-    opacity: 0.92;
-    line-height: 1.6;
-    animation: slideUp 1.1s ease;
-  }
-  @keyframes slideUp {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; } to { opacity: 1; }
-  }
-
-  /* Animated hospital building scene */
-  .scene {
-    width: 420px;
-    max-width: 90vw;
-    height: 260px;
-    position: relative;
-  }
-  .cloud {
-    position: absolute;
-    background: rgba(255,255,255,0.55);
-    border-radius: 50px;
-    filter: blur(0.5px);
-    animation: floatCloud 14s linear infinite;
-  }
+  .hero-text .badge { display: inline-block; background: rgba(255,255,255,0.18); padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; margin-bottom: 14px; animation: fadeIn 1s ease; }
+  .hero-text h1 { font-size: 34px; line-height: 1.25; margin-bottom: 14px; animation: slideUp 0.9s ease; }
+  .hero-text p { font-size: 15px; opacity: 0.92; line-height: 1.6; animation: slideUp 1.1s ease; }
+  @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .scene { width: 420px; max-width: 90vw; height: 260px; position: relative; }
+  .cloud { position: absolute; background: rgba(255,255,255,0.55); border-radius: 50px; filter: blur(0.5px); animation: floatCloud 14s linear infinite; }
   .cloud:nth-child(1){ width:70px; height:24px; top:10px; left:-80px; animation-duration: 16s; }
   .cloud:nth-child(2){ width:50px; height:18px; top:40px; left:-160px; animation-duration: 20s; animation-delay: -6s; }
-  @keyframes floatCloud {
-    from { transform: translateX(0); }
-    to { transform: translateX(480px); }
-  }
-
-  .ambulance {
-    position: absolute;
-    bottom: 18px;
-    left: -140px;
-    animation: driveBy 9s linear infinite;
-  }
-  @keyframes driveBy {
-    0% { left: -140px; }
-    100% { left: 480px; }
-  }
-
-  /* ---------- WAVE DIVIDER ---------- */
+  @keyframes floatCloud { from { transform: translateX(0); } to { transform: translateX(480px); } }
+  .ambulance { position: absolute; bottom: 18px; left: -140px; animation: driveBy 9s linear infinite; }
+  @keyframes driveBy { 0% { left: -140px; } 100% { left: 480px; } }
   .wave { display: block; width: 100%; margin-top: 40px; }
-
-  /* ---------- INFO STRIP ---------- */
-  .strip {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    background: white;
-    padding: 22px 20px;
-    flex-wrap: wrap;
-    margin-top: -2px;
-  }
+  .strip { display: flex; justify-content: center; gap: 50px; background: white; padding: 22px 20px; flex-wrap: wrap; margin-top: -2px; }
   .strip div { text-align: center; }
   .strip h3 { color: #0a6e6e; font-size: 22px; }
   .strip p { font-size: 12px; color: #718096; margin-top: 2px; }
-
-  /* ---------- MAIN CONTENT ---------- */
-  .content {
-    max-width: 1000px;
-    margin: 50px auto;
-    display: flex;
-    gap: 40px;
-    padding: 0 20px;
-    flex-wrap: wrap;
-  }
+  .content { max-width: 1000px; margin: 50px auto; display: flex; gap: 40px; padding: 0 20px; flex-wrap: wrap; }
   .about { flex: 1; min-width: 280px; }
   .about h2 { color: #22313f; font-size: 24px; margin-bottom: 12px; }
   .about p { font-size: 14px; color: #4a5568; line-height: 1.7; margin-bottom: 18px; }
-  .depts {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-  .dept-card {
-    background: #eefaf9;
-    border-left: 4px solid #0a6e6e;
-    padding: 10px 12px;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 600;
-    color: #0a6e6e;
-  }
-
-  /* ---------- FORM CARD ---------- */
-  .form-card {
-    flex: 1;
-    min-width: 300px;
-    background: white;
-    border-radius: 14px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    padding: 26px;
-    align-self: flex-start;
-  }
-  .form-card h3 {
-    color: #22313f;
-    font-size: 18px;
-    margin-bottom: 4px;
-  }
-  .form-card .sub {
-    font-size: 12px;
-    color: #a0aec0;
-    margin-bottom: 16px;
-  }
-  label {
-    display: block;
-    font-size: 12px;
-    font-weight: 700;
-    color: #4a5568;
-    margin: 12px 0 5px;
-  }
-  input, select, textarea {
-    width: 100%;
-    padding: 10px 12px;
-    border: 1.5px solid #e2e8f0;
-    border-radius: 7px;
-    font-size: 13px;
-    font-family: inherit;
-    color: #2d3748;
-    background: #fafbfc;
-  }
-  input:focus, select:focus, textarea:focus {
-    outline: none;
-    border-color: #0a6e6e;
-    background: white;
-  }
+  .depts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .dept-card { background: #eefaf9; border-left: 4px solid #0a6e6e; padding: 10px 12px; border-radius: 6px; font-size: 13px; font-weight: 600; color: #0a6e6e; }
+  .form-card { flex: 1; min-width: 300px; background: white; border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); padding: 26px; align-self: flex-start; }
+  .form-card h3 { color: #22313f; font-size: 18px; margin-bottom: 4px; }
+  .form-card .sub { font-size: 12px; color: #a0aec0; margin-bottom: 16px; }
+  label { display: block; font-size: 12px; font-weight: 700; color: #4a5568; margin: 12px 0 5px; }
+  input, select, textarea { width: 100%; padding: 10px 12px; border: 1.5px solid #e2e8f0; border-radius: 7px; font-size: 13px; font-family: inherit; color: #2d3748; background: #fafbfc; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: #0a6e6e; background: white; }
   textarea { resize: vertical; min-height: 70px; }
-  button {
-    margin-top: 18px;
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 7px;
-    background: #0a6e6e;
-    color: white;
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
+  button { margin-top: 18px; width: 100%; padding: 12px; border: none; border-radius: 7px; background: #0a6e6e; color: white; font-size: 14px; font-weight: 700; cursor: pointer; transition: background 0.2s; }
   button:hover { background: #085858; }
-
-  footer {
-    background: #0a2e2e;
-    color: #cfe8e6;
-    text-align: center;
-    font-size: 12px;
-    padding: 22px;
-    margin-top: 40px;
-  }
+  footer { background: #0a2e2e; color: #cfe8e6; text-align: center; font-size: 12px; padding: 22px; margin-top: 40px; }
 </style>
 </head>
 <body>
@@ -250,12 +57,7 @@
     <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="9" width="20" height="13" rx="1" fill="#0a6e6e"/><rect x="9" y="3" width="6" height="19" fill="#0a6e6e"/><rect x="10.2" y="10.5" width="3.6" height="1.5" fill="white"/><rect x="11.25" y="9.5" width="1.5" height="3.5" fill="white"/></svg>
     BLISSFUL HOSPITAL
   </div>
-  <ul>
-    <li>Home</li>
-    <li>Departments</li>
-    <li>Doctors</li>
-    <li>Contact</li>
-  </ul>
+  <ul><li>Home</li><li>Departments</li><li>Doctors</li><li>Contact</li></ul>
   <div class="nav-cta">Emergency: 1800-000-111</div>
 </nav>
 
@@ -266,11 +68,9 @@
       <h1>Compassionate Healthcare, Whenever You Need It</h1>
       <p>Raise a support request for appointments, billing, prescriptions, or emergencies — our care team responds fast, every time.</p>
     </div>
-
     <div class="scene">
       <div class="cloud"></div>
       <div class="cloud"></div>
-      <!-- Hospital building -->
       <svg viewBox="0 0 420 260" width="100%" height="100%">
         <rect x="40" y="120" width="340" height="120" fill="#ffffff" rx="4"/>
         <rect x="150" y="60" width="120" height="180" fill="#f2f7f7" rx="4"/>
@@ -278,34 +78,26 @@
         <rect x="204" y="90" width="12" height="40" fill="#ffffff"/>
         <rect x="190" y="104" width="40" height="12" fill="#ffffff"/>
         <g fill="#a6dcd9">
-          <rect x="55" y="135" width="26" height="26" rx="2"/>
-          <rect x="95" y="135" width="26" height="26" rx="2"/>
-          <rect x="55" y="175" width="26" height="26" rx="2"/>
-          <rect x="95" y="175" width="26" height="26" rx="2"/>
-          <rect x="300" y="135" width="26" height="26" rx="2"/>
-          <rect x="340" y="135" width="26" height="26" rx="2"/>
-          <rect x="300" y="175" width="26" height="26" rx="2"/>
-          <rect x="340" y="175" width="26" height="26" rx="2"/>
+          <rect x="55" y="135" width="26" height="26" rx="2"/><rect x="95" y="135" width="26" height="26" rx="2"/>
+          <rect x="55" y="175" width="26" height="26" rx="2"/><rect x="95" y="175" width="26" height="26" rx="2"/>
+          <rect x="300" y="135" width="26" height="26" rx="2"/><rect x="340" y="135" width="26" height="26" rx="2"/>
+          <rect x="300" y="175" width="26" height="26" rx="2"/><rect x="340" y="175" width="26" height="26" rx="2"/>
         </g>
         <rect x="170" y="150" width="80" height="90" fill="#eaf4f3"/>
         <rect x="195" y="180" width="30" height="60" fill="#0a6e6e"/>
         <text x="210" y="140" font-size="13" font-weight="800" text-anchor="middle" fill="#0a6e6e" font-family="Segoe UI, Arial">BLISSFUL</text>
         <rect x="40" y="235" width="340" height="6" fill="#dcecea"/>
       </svg>
-
-      <!-- moving ambulance -->
       <svg class="ambulance" width="90" height="40" viewBox="0 0 90 40">
         <rect x="5" y="12" width="60" height="20" rx="3" fill="white" stroke="#0a6e6e" stroke-width="2"/>
         <rect x="60" y="16" width="20" height="16" rx="2" fill="white" stroke="#0a6e6e" stroke-width="2"/>
         <rect x="30" y="18" width="10" height="3" fill="#e74c3c"/>
         <rect x="33.5" y="14.5" width="3" height="10" fill="#e74c3c"/>
-        <circle cx="20" cy="34" r="5" fill="#22313f"/>
-        <circle cx="65" cy="34" r="5" fill="#22313f"/>
+        <circle cx="20" cy="34" r="5" fill="#22313f"/><circle cx="65" cy="34" r="5" fill="#22313f"/>
         <rect x="0" y="8" width="6" height="6" fill="#ffd166"/>
       </svg>
     </div>
   </div>
-
   <svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" height="50">
     <path fill="#f4f7fa" d="M0,32L80,26.7C160,21,320,11,480,16C640,21,800,43,960,48C1120,53,1280,43,1360,37.3L1440,32L1440,60L0,60Z"></path>
   </svg>
@@ -323,48 +115,50 @@
     <h2>Why Blissful Hospital?</h2>
     <p>Blissful Hospital has been serving the community with dedicated, patient-first care. Our Patient Support Team is available round the clock to help with appointments, billing concerns, prescriptions, and urgent medical queries — so you always feel heard and cared for.</p>
     <div class="depts">
-      <div class="dept-card">Cardiology</div>
-      <div class="dept-card">Pediatrics</div>
-      <div class="dept-card">Orthopedics</div>
-      <div class="dept-card">Emergency Care</div>
-      <div class="dept-card">Pharmacy</div>
-      <div class="dept-card">General Medicine</div>
+      <div class="dept-card">Cardiology</div><div class="dept-card">Pediatrics</div>
+      <div class="dept-card">Orthopedics</div><div class="dept-card">Emergency Care</div>
+      <div class="dept-card">Pharmacy</div><div class="dept-card">General Medicine</div>
     </div>
   </div>
 
   <div class="form-card">
     <h3>Raise a Support Request</h3>
     <p class="sub">Our team will get back based on your query's urgency.</p>
-    <form action="return-page.html" method="GET">
+    <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00Dg500000CeAnT" method="POST">
+      <input type="hidden" name="orgid" value="00Dg500000CeAnT">
+      <input type="hidden" name="retURL" value="https://rajarishnij.github.io/Blissful-Hospital-Service-Cloud/return-page-service-cloud.html">
+
       <label for="name">Full Name *</label>
-      <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+      <input type="text" id="name" maxlength="80" name="name" placeholder="Enter your full name">
 
       <label for="email">Email *</label>
-      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+      <input type="text" id="email" maxlength="80" name="email" placeholder="you@example.com">
 
       <label for="phone">Phone Number</label>
-      <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210">
+      <input type="text" id="phone" maxlength="40" name="phone" placeholder="+91 98765 43210">
 
-      <label for="queryType">Query Type *</label>
-      <select id="queryType" name="queryType" required>
-        <option value="">-- Select --</option>
+      <label for="subject">Subject *</label>
+      <input type="text" id="subject" maxlength="80" name="subject" placeholder="Short subject for your request">
+
+      <label for="00Ng500000TGW6U">Query Type *</label>
+      <select id="00Ng500000TGW6U" name="00Ng500000TGW6U" title="QUERY TYPE">
+        <option value="">--None--</option>
         <option value="Appointment Issue">Appointment Issue</option>
         <option value="Billing Query">Billing Query</option>
         <option value="Prescription Support">Prescription Support</option>
         <option value="Emergency">Emergency</option>
       </select>
 
-      <label for="urgency">Urgency Level *</label>
-      <select id="urgency" name="urgency" required>
-        <option value="">-- Select --</option>
-        <option value="Low">Low</option>
-        <option value="Medium">Medium</option>
+      <label for="00Ng500000TGbFp">Urgency Level *</label>
+      <select id="00Ng500000TGbFp" name="00Ng500000TGbFp" title="URGENCY LEVEL">
+        <option value="">--None--</option>
         <option value="High">High</option>
-        <option value="Emergency">Emergency</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
       </select>
 
       <label for="description">Describe your issue *</label>
-      <textarea id="description" name="description" placeholder="Tell us what happened..." required></textarea>
+      <textarea id="description" name="description" placeholder="Tell us what happened..."></textarea>
 
       <button type="submit">Submit Request</button>
     </form>
